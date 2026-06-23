@@ -16,5 +16,22 @@ class KaryawanKontrak extends Karyawan {
         return "WHERE jenis_karyawan = 'Kontrak'";
     }
 
+    #[Override]
+    public function hitungGajiBersih(){
+       $gajiBersih = $this->hariKerjaMasuk*$this->gajiDasarPerhari;
+       return $gajiBersih;
+    }
+
+    #[Override]
+    public function tampilkanProfilKaryawan(){
+        return "ID: #EMP-" . $this->getIdKaryawan() . " | " .
+               "Nama: " . $this->getNamaKaryawan() . " | " .
+               "Dept: " . $this->getDepartemen() . " | " .
+               "Kehadiran: " . $this->getHariKerjaMasuk() . " Hari | " .
+               "Gaji Harian: Rp " . number_format($this->getGajiDasarPerHari(), 0, ',', '.') . " | " .
+               "Tunjangan Medis: Rp " . number_format($this->tunjanganKesehatan, 0, ',', '.') . " | " .
+               "Opsi Saham ID: " . $this->opsiSahamId;
+    }
+
 }
 ?>

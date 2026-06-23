@@ -15,5 +15,22 @@ class KaryawanMagang extends Karyawan {
     public static function getData() {
         return "WHERE jenis_karyawan = 'Magang'";
     }
+
+    #[Override]
+    public function hitungGajiBersih(){
+       $gajiBersih = ($this->hariKerjaMasuk*$this->gajiDasarPerhari) * 0.80;
+       return $gajiBersih;
+    }
+
+    #[Override]
+    public function tampilkanProfilKaryawan(){
+        return "ID: #EMP-" . $this->getIdKaryawan() . " | " .
+               "Nama: " . $this->getNamaKaryawan() . " | " .
+               "Dept: " . $this->getDepartemen() . " | " .
+               "Kehadiran: " . $this->getHariKerjaMasuk() . " Hari | " .
+               "Uang Harian Pokok: Rp " . number_format($this->getGajiDasarPerHari(), 0, ',', '.') . " | " .
+               "Uang Saku Tambahan: Rp " . number_format($this->uangSakuBulanan, 0, ',', '.') . " | " .
+               "Program: " . $this->sertifikatKampusMerdeka;
+    }
 }
 ?>
