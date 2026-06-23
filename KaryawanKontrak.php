@@ -24,14 +24,14 @@ class KaryawanKontrak extends Karyawan {
 
     #[Override]
     public function tampilkanProfilKaryawan(){
-        return "ID: #EMP-" . $this->getIdKaryawan() . " | " .
-               "Nama: " . $this->getNamaKaryawan() . " | " .
-               "Dept: " . $this->getDepartemen() . " | " .
-               "Kehadiran: " . $this->getHariKerjaMasuk() . " Hari | " .
-               "Gaji Harian: Rp " . number_format($this->getGajiDasarPerHari(), 0, ',', '.') . " | " .
-               "Tunjangan Medis: Rp " . number_format($this->tunjanganKesehatan, 0, ',', '.') . " | " .
-               "Opsi Saham ID: " . $this->opsiSahamId;
-    }
+        return "ID: EMP-" . $this->getIdKaryawan() . " | " .
+            "Nama: " . $this->getNamaKaryawan() . " | " .
+            "Dept: " . $this->getDepartemen() . " | " .
+            "Kehadiran: " . $this->getHariKerjaMasuk() . " Hari | " .
+            "Gaji Harian: Rp " . number_format($this->getGajiDasarPerHari(), 0, ',', '.') . " | " .
+            "Durasi Kontrak: " . $this->durasiKontrakBulan . " Bulan | " .
+            "Agensi: " . $this->agensiPenyalur; // Ditutup dengan rapi menggunakan titik koma (;)
+}
 
 }
 ?>
